@@ -82,9 +82,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Code\BinarySearchTree\BstLCA.cs" />
-    <Compile Include="Code\BinarySearchTree\MergeBST.cs" />
+    <Compile Include="Code\BinarySearchTrees\BstLCA.cs" />
+    <Compile Include="Code\BinarySearchTrees\MergeBST.cs" />
+    <Compile Include="Code\BinaryTrees\_2009_Summer_A_2.cs" />
     <Compile Include="Code\IClassMethods.cs" />
+    <Compile Include="Code\LinkedLists\_2009_Summer_A_1.cs" />
     <Compile Include="Code\Stacks\StackSorting.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
