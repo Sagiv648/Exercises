@@ -33,7 +33,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>.\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -78,7 +78,7 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
     <Reference Include="Unit4">
-      <HintPath>..\..\Playing-ground\c#-playing-ground\ConsoleApp1\Unit4\Unit4.dll</HintPath>
+      <HintPath>..\Unit4.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -86,6 +86,8 @@
     <Compile Include="Code\BinarySearchTrees\MergeBST.cs" />
     <Compile Include="Code\BinaryTrees\_2009_Summer_A_2.cs" />
     <Compile Include="Code\IClassMethods.cs" />
+    <Compile Include="Code\LinkedLists\LinkedListLabWork20_4_23.cs" />
+    <Compile Include="Code\LinkedLists\SophieOptimizedLinkedListSolutions20_4_23.cs" />
     <Compile Include="Code\LinkedLists\_2009_Summer_A_1.cs" />
     <Compile Include="Code\Stacks\StackSorting.cs" />
     <Compile Include="Program.cs" />
