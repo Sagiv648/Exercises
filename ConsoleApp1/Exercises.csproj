@@ -89,6 +89,9 @@
     <Compile Include="Code\LinkedLists\LinkedListLabWork20_4_23.cs" />
     <Compile Include="Code\LinkedLists\SophieOptimizedLinkedListSolutions20_4_23.cs" />
     <Compile Include="Code\LinkedLists\_2009_Summer_A_1.cs" />
+    <Compile Include="Code\PreparationForTest\BinaryTrees.cs" />
+    <Compile Include="Code\PreparationForTest\LinkedLists.cs" />
+    <Compile Include="Code\SophieWork\Assignment_27_4_23.cs" />
     <Compile Include="Code\Stacks\StackSorting.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
