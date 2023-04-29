@@ -10,18 +10,7 @@ namespace ConsoleApp1.Code.SophieWork
     public class Assignment_27_4_23 : IClassMethods
     {
         Node<int> head;
-        public void GenereateInput()
-        {
-            int[] testcase = { 1,0, 7, 2, 0, 5,5,1 };
-            head = new Node<int>(testcase[0]);
-            Node<int> tmp = head;
-            for (int i = 1; i < testcase.Length; i++)
-            {
-                tmp.SetNext(new Node<int>(testcase[i]));
-                tmp = tmp.GetNext();
-            }
-
-        }
+        
 
         Stack<int> stack1 = new Stack<int>();
         Stack<int> stack2 = new Stack<int>();
@@ -84,14 +73,15 @@ namespace ConsoleApp1.Code.SophieWork
         {
             if (root == null)
                 return;
+
             if (root.HasRight() && root.HasLeft())
             {
 
                 if ((root.GetLeft().GetValue() == num1 && root.GetRight().GetValue() == num2)
                    || (root.GetRight().GetValue() == num1 && root.GetLeft().GetValue() == num2))
                 {
-                    Console.WriteLine($"{num1} is sibling to {num2}");
 
+                    Console.WriteLine($"{num1} is sibling to {num2}");
                     return;
                 }
                 
@@ -129,10 +119,16 @@ namespace ConsoleApp1.Code.SophieWork
             
             Console.WriteLine("no immeediate relations");
             
-            NumbersRelations(root.GetLeft(), num1, num2);
-            NumbersRelations(root.GetRight(), num1, num2);
+             NumbersRelations(root.GetLeft(), num1, num2);
+             NumbersRelations(root.GetRight(), num1, num2);
+
             
+
+
         }
+        
+
+
 
         public static int LeavesCount(BinNode<int> root)
         {
@@ -164,10 +160,10 @@ namespace ConsoleApp1.Code.SophieWork
 
 
         
-        public void RotateListByK(Node<int> head, int k)
+        public Node<int> RotateListByK(Node<int> head, int k)
         {
             if (head == null)
-                return;
+                return head;
 
             int len = 1;
             Node<int> tail = head;
@@ -179,14 +175,14 @@ namespace ConsoleApp1.Code.SophieWork
             
             k %= len;
             if (k == 0)
-                return;
+                return head;
             Node<int> tmp = head;
             for(int i = 0; i < len-k-1; i++)
                 tmp = tmp.GetNext();
             Node<int> newHead = tmp.GetNext();
             tmp.SetNext(null);
             tail.SetNext(head);
-            this.head = newHead;
+            return newHead;
             
                 
             
@@ -203,15 +199,32 @@ namespace ConsoleApp1.Code.SophieWork
             Console.WriteLine();
         }
 
+        //Implemented from IClassMethods
+        public void GenereateInput()
+        {
+            int[] testcase = { 1,7,2,0,5 };
+            head = new Node<int>(testcase[0]);
+            Node<int> tmp = head;
+            for (int i = 1; i < testcase.Length; i++)
+            {
+                tmp.SetNext(new Node<int>(testcase[i]));
+                tmp = tmp.GetNext();
+            }
+
+        }
+        //Implemented from IClassMethods
         public void Work()
         {
+            GenereateInput();
             BinNode<int> root = new BinNode<int>(3);
             root.SetLeft(new BinNode<int>(2));
             root.SetRight(new BinNode<int>(4));
             root.GetRight().SetRight(new BinNode<int>(1));
             NumbersRelations(root, 2, 7);
             Unit4.BinTreeCanvasLib.TreeCanvas.AddTree(root);
-            //Console.WriteLine(LeavesCount(root));
+            
+
+            //PrintList(head);
 
 
 

@@ -31,202 +31,160 @@ namespace ConsoleApp1.Code
             return prev;
         }
 
-        //TODO: Quicksort
-        public static Node<int> Quicksort(Node<int> head)
+        
+        public static Node<int> Mergesort(Node<int> head)
         {
-            return null;
+            if (head == null || head.GetNext() == null)
+                return head;
+
+            Node<int> mid = Middle(head);
+            Node<int> tmp = mid.GetNext();
+
+            mid.SetNext(null);
+            mid = tmp;
+
+            Node<int> left = Mergesort(head);
+            Node<int> right = Mergesort(mid);
+
+            return Merge(left, right);
+
+
+            
         }
 
-        //TODO: Merge
+        
         public static Node<int> Merge(Node<int> head1, Node<int> head2)
         {
-            return null;
+            Node<int> dummy = new Node<int>(0);
+            Node<int> tail = dummy;
+
+            while (head1 != null && head2 != null)
+            {
+                if (head1.GetValue() < head2.GetValue())
+                {
+                    tail.SetNext(head1);
+                    head1 = head1.GetNext();
+                }
+                else
+                {
+                    tail.SetNext(head2);
+                    head2 = head2.GetNext();
+                }
+                tail = tail.GetNext();
+            }
+            if (head1 != null)
+                tail.SetNext(head1);
+            else if (head2 != null)
+                tail.SetNext(head2);
+
+            return dummy.GetNext();
         }
 
-        //TODO: Kth element from end
+        
         public static Node<int> KthElementFromEnd(Node<int> head, int k)
         {
-            return null;
+            Node<int> ahead = head;
+
+            while(ahead != null && k > 0)
+            {
+                ahead = ahead.GetNext();
+                k--;
+            }
+            Node<int> cur = head;
+            while(ahead != null)
+            {
+                cur = cur.GetNext();
+                ahead = ahead.GetNext();
+            }
+            return cur;
+
+            
         }
 
-        //TODO: Middle element
+        
         public static Node<int> Middle(Node<int> head)
         {
-            return null;
+            Node<int> slow = head;
+            Node<int> fast = head.GetNext();
+
+            while(fast != null && fast.GetNext() != null)
+            {
+                slow = slow.GetNext();
+                fast = fast.GetNext().GetNext();
+            }
+            return slow;
         }
 
-        //TODO: Partition by K
+        
         public static Node<int> PartitionByK(Node<int> head, int k)
         {
-            return null;
+            Node<int> dummyRight = new Node<int>(0);
+            Node<int> dummyMiddle = new Node<int>(0);
+            Node<int> dummyLeft = new Node<int>(0);
+
+            Node<int> leftTail = dummyLeft;
+            Node<int> middleTail = dummyMiddle;
+            Node<int> rightTail = dummyRight;
+
+
+            while (head != null)
+            {
+                Node<int> current = head;
+                head = head.GetNext();
+                if (current.GetValue() < k)
+                {
+                    leftTail.SetNext(current);
+                    leftTail = leftTail.GetNext();
+                    leftTail.SetNext(null);
+                }
+                else if (current.GetValue() == k)
+                {
+                    middleTail.SetNext(current);
+                    middleTail = middleTail.GetNext();
+                    middleTail.SetNext(null);
+                }
+                else
+                {
+                    rightTail.SetNext(current);
+                    rightTail = rightTail.GetNext();
+                    rightTail.SetNext(null);
+                }
+            }
+
+            middleTail.SetNext(dummyRight.GetNext());
+
+            leftTail.SetNext(dummyMiddle.GetNext());
+
+            return dummyLeft.GetNext();
         }
 
-        //TODO: Find loop node
+        
         public static Node<int> FindLoopNode(Node<int> head)
         {
-            return null;
+            Node<int> slow = head;
+            Node<int> fast = head.GetNext();
+
+            while(fast != null && fast.GetNext() != null)
+            {
+                if (slow == fast)
+                    break;
+
+                slow = slow.GetNext();
+                fast = fast.GetNext().GetNext();
+            }
+            if (fast == null || fast.GetNext() == null)
+                return null;
+
+            Node<int> tmp = head;
+            while(tmp != slow)
+            {
+                tmp = tmp.GetNext();
+                slow = slow.GetNext();
+            }
+            return tmp;
+            
         }
-        //public static Node<int> ReverseList(Node<int> node)
-        //{
-        //    if (node == null || node.GetNext() == null)
-        //        return node;
-
-        //    Node<int> e = ReverseList(node.GetNext());
-        //    //e => 81
-        //    //e->next = 82 (last)
-        //    //e-> next = 81
-        //    //82 81
-        //    node.GetNext().SetNext(node);
-        //    node.SetNext(null);
-        //    return e;
-        //}
-        //public static void SortList(Node<int> node)
-        //{
-        //    Node<int> tmp = node;
-        //    while (tmp != null)
-        //    {
-        //        Node<int> tmpSec = tmp.GetNext();
-        //        while (tmpSec != null)
-        //        {
-        //            if (tmp.GetValue() > tmpSec.GetValue())
-        //            {
-        //                int val = tmp.GetValue();
-        //                tmp.SetValue(tmpSec.GetValue());
-        //                tmpSec.SetValue(val);
-        //            }
-        //            tmpSec = tmpSec.GetNext();
-        //        }
-        //        tmp = tmp.GetNext();
-        //    }
-        //}
-
-        //public static Node<int> MergeLists(Node<int> head1, Node<int> head2)
-        //{
-        //    Node<int> output = null;
-        //    Node<int>[] tmp = new Node<int>[] { head1, head2 };
-        //    int remaining = -1;
-        //    if (head1.GetValue() > head2.GetValue())
-        //        remaining = 1;
-        //    else
-        //        remaining = 0;
-
-        //    output = new Node<int>(tmp[remaining].GetValue());
-        //    tmp[remaining] = tmp[remaining].GetNext();
-
-
-        //    Node<int> outputTmp = output;
-
-
-        //    while (tmp[0] != null && tmp[1] != null)
-        //    {
-        //        int iForward = 0;
-        //        if (tmp[0].GetValue() < tmp[1].GetValue())
-        //        {
-        //            outputTmp.SetNext(new Node<int>(tmp[0].GetValue()));
-        //            iForward = Convert.ToInt32(false);
-        //        }
-        //        else
-        //        {
-        //            outputTmp.SetNext(new Node<int>(tmp[1].GetValue()));
-        //            iForward = Convert.ToInt32(true);
-        //        }
-        //        tmp[iForward] = tmp[iForward].GetNext();
-
-        //        if (tmp[0] == null)
-        //            remaining = 1;
-
-        //        else
-        //            remaining = 0;
-
-        //        outputTmp = outputTmp.GetNext();
-        //    }
-        //    while (tmp[remaining] != null)
-        //    {
-        //        outputTmp.SetNext(new Node<int>(tmp[remaining].GetValue()));
-        //        outputTmp = outputTmp.GetNext();
-        //        tmp[remaining] = tmp[remaining].GetNext();
-        //    }
-        //    return output;
-        //}
-
-
-        //public static Node<int> NthFromEnd(Node<int> node, int n)
-        //{
-        //    Stack<Node<int>> s = new Stack<Node<int>>();
-        //    Node<int> tmp = node;
-        //    while (tmp != null)
-        //    {
-        //        s.Push(tmp);
-        //        tmp = tmp.GetNext();
-        //    }
-        //    while (!s.IsEmpty() && n > 0)
-        //    {
-        //        s.Pop();
-        //        n--;
-        //    }
-        //    return s.Pop();
-        //}
-
-        //public static Node<int> MiddleElement(Node<int> node)
-        //{
-        //    int len = 1;
-        //    Node<int> tmp = node;
-        //    while (tmp != null)
-        //    {
-        //        len += Convert.ToInt32((tmp = tmp.GetNext()) != null);
-        //    }
-
-        //    tmp = node;
-        //    for (int i = 0; i < len / 2; i++)
-        //    {
-        //        tmp = tmp.GetNext();
-        //    }
-        //    return tmp;
-        //}
-
-        //public static void SortByN(Node<int> head, int n)
-        //{
-
-
-        //    Node<int> tmp = head;
-
-        //    while (tmp != null)
-        //    {
-        //        Node<int> tmpSec = tmp.GetNext();
-        //        while (tmp.GetValue() != n && tmpSec != null)
-        //        {
-        //            if (tmp.GetValue() > n)
-        //            {
-        //                int val = tmpSec.GetValue();
-        //                tmpSec.SetValue(tmp.GetValue());
-        //                tmp.SetValue(val);
-        //            }
-        //            tmpSec = tmpSec.GetNext();
-        //        }
-        //        tmp = tmp.GetNext();
-        //    }
-
-
-
-        //}
-
-
-
-
-        //public static Node<int> FindLoop(Node<int> head)
-        //{
-        //    Node<int> slow = head;
-        //    Node<int> fast = slow;
-        //    while (slow != null && fast != null && fast.GetNext() != null)
-        //    {
-        //        if (slow == fast)
-        //            return slow;
-        //        slow = slow.GetNext();
-        //        fast = fast.GetNext().GetNext();
-
-        //    }
-        //    return null;
-        //}
+        
 
         void PrintList(Node<int> head)
         {
@@ -239,18 +197,23 @@ namespace ConsoleApp1.Code
             }
             Console.WriteLine();
         }
-
+        //Implemented from IClassMethod
         public void Work()
         {
             GenereateInput();
 
-            
-           
+
+            PrintList(list1);
+
+            list1 = Mergesort(list1);
+
+            PrintList(list1);
             
            
            
         }
 
+        //Implemented from IClassMethod
         public void GenereateInput()
         {
             int[] rand = new int[20];
