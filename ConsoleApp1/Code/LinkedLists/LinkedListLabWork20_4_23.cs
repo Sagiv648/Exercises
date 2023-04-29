@@ -43,8 +43,8 @@ namespace ConsoleApp1.Code
             return null;
         }
 
-        //TODO: Nth element from end
-        public static Node<int> NthElementFromEnd(Node<int> head)
+        //TODO: Kth element from end
+        public static Node<int> KthElementFromEnd(Node<int> head, int k)
         {
             return null;
         }
