@@ -38,6 +38,22 @@ namespace ConsoleApp1.Code.BinaryTrees
             
             //I N O A X D T S Y -> inorder
 
+
+            //I N O -> children of A
+            //T S Y -> children of D
+
+            //    X
+            //   / \
+            //  A   D
+            // /     \
+           // N       S
+         // /  \     /  \
+        // I    O   T     Y
+
+
+
+
+
             //root = X
             //root.left = A
             //root.left.left = I
