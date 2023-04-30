@@ -90,6 +90,7 @@
     <Compile Include="Code\BinaryTrees\_2014_Summer_A_1.cs" />
     <Compile Include="Code\BinaryTrees\_2015_Summer_A_1.cs" />
     <Compile Include="Code\BinaryTrees\_2016_Summer_A_6.cs" />
+    <Compile Include="Code\BinaryTrees\_2022_Summer_A_7.cs" />
     <Compile Include="Code\IClassMethods.cs" />
     <Compile Include="Code\LinkedLists\LinkedListLabWork20_4_23.cs" />
     <Compile Include="Code\LinkedLists\SophieOptimizedLinkedListSolutions20_4_23.cs" />
