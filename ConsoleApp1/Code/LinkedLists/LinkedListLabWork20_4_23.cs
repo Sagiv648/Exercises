@@ -202,7 +202,8 @@ namespace ConsoleApp1.Code
         {
             GenereateInput();
 
-
+            
+            
             PrintList(list1);
 
             list1 = Mergesort(list1);

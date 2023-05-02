@@ -13,6 +13,18 @@ namespace ConsoleApp1.Code.PreparationForTest
         //-------------------------------------------- Binary Trees --------------------------------------
 
 
+        
+
+        
+        
+
+
+
+
+
+
+
+
         //bin tree -> morris traversal
         public static void MorrisTraversalInorder(BinNode<int> root)
         {

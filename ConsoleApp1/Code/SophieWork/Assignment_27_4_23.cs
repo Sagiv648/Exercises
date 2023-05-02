@@ -202,7 +202,7 @@ namespace ConsoleApp1.Code.SophieWork
         //Implemented from IClassMethods
         public void GenereateInput()
         {
-            int[] testcase = { 1,7,2,0,5 };
+            int[] testcase = { 1,7,2,0,2,5,2,2,2,1,5,6,7,10,0,0,0 };
             head = new Node<int>(testcase[0]);
             Node<int> tmp = head;
             for (int i = 1; i < testcase.Length; i++)
@@ -216,12 +216,8 @@ namespace ConsoleApp1.Code.SophieWork
         public void Work()
         {
             GenereateInput();
-            BinNode<int> root = new BinNode<int>(3);
-            root.SetLeft(new BinNode<int>(2));
-            root.SetRight(new BinNode<int>(4));
-            root.GetRight().SetRight(new BinNode<int>(1));
-            NumbersRelations(root, 2, 7);
-            Unit4.BinTreeCanvasLib.TreeCanvas.AddTree(root);
+            RemoveDuplicates(head);
+            PrintList(head);
             
 
             //PrintList(head);
