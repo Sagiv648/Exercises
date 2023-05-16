@@ -101,6 +101,7 @@
     <Compile Include="Code\SophieWork\Assignment_27_4_23.cs" />
     <Compile Include="Code\SophieWork\Assignment_2_5_23.cs" />
     <Compile Include="Code\Stacks\StackSorting.cs" />
+    <Compile Include="Code\Summer_2022_A_Sohpie_Solutions.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
